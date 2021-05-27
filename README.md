@@ -17,7 +17,7 @@
 ### Association
 
 - has_many :items
-- has_many  :product_purchase_management
+- has_many  :product_purchase_managements
 
 ## items テーブル
 
@@ -45,13 +45,10 @@
 | user    | references | null:false, foreign_key: true |
 | item    | references | null:false, foreign_key: true |
 
-- has_one :user
-- has_one :item
-
-### Association
-
-- has_one    :user
-- has_one    :item
+Association
+belongs_to :user 
+belongs_to :item
+has_one    :buyer
 
 ## buyers テーブル
 
@@ -68,3 +65,4 @@
 
 - belongs_to :user
 - belongs_to :item
+- belongs_to :product_purchase_management
