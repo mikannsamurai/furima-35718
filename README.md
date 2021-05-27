@@ -30,7 +30,7 @@
 | product_condition_id       | integer    | null:false                    |
 | shipping_fee_burden_id     | integer    | null:false                    |
 | shipping_area_id           | integer    | null:false                    |
-| estimated shipping date_id | integer    | null:false                    |
+| estimated_shipping_date_id | integer    | null:false                    |
 | user                       | references | null:false, foreign_key: true |
 
 ### Association
@@ -45,7 +45,8 @@
 | user    | references | null:false, foreign_key: true |
 | item    | references | null:false, foreign_key: true |
 
-Association
+### Association
+
 belongs_to :user 
 belongs_to :item
 has_one    :buyer
@@ -54,15 +55,12 @@ has_one    :buyer
 
 | Column                        | Type       | Option                        |
 | ----------------------------- | ---------- | ----------------------------- |
-| prefectures_id                | integer    | null:false                    |
+| prefecture_id                 | integer    | null:false                    |
 | municipalities                | string     | null:false                    |
-| address_1                     | string     | null:false                    |
-| address_2                     | string     | null:false                    |
+| address                       | string     | null:false                    |
 | building_name_and_room_number | string     | null:true                     |
 | product_purchase_management   | references | null:false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
 - belongs_to :product_purchase_management
