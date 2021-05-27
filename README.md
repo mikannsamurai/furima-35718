@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column                | Type     | Options          |
-| ---------------------   --------   ---------------- |
-| nickname              | string   | null:false       |
-| email                 | string   | null:false       |
-| encrypted_password    | string   | null:false       |
-| first_name_full_width | string   | null:false       |
-| last_name_full_width  | string   | null:false       |
-| first_name_katakana   | string   | null:false       |
-| last_name_katakana    | string   | null:false       |
-| birthday              | date     | null:false       |
+| Column                | Type     | Options                  |
+| ---------------------   --------   ------------------------ |
+| nickname              | string   | null:false               |
+| email                 | string   | null:false, unique: true |
+| encrypted_password    | string   | null:false               |
+| first_name_full_width | string   | null:false               |
+| last_name_full_width  | string   | null:false               |
+| first_name_katakana   | string   | null:false               |
+| last_name_katakana    | string   | null:false               |
+| birthday              | date     | null:false               |
 
 
 ### Association
@@ -60,6 +60,8 @@ has_one    :buyer
 | address                       | string     | null:false                    |
 | building_name_and_room_number | string     | null:true                     |
 | product_purchase_management   | references | null:false, foreign_key: true |
+| postal_coke                   | string     | null:false                    |
+| phone_number                  | string     | null:false                    |
 
 ### Association
 
