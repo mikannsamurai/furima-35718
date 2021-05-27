@@ -35,22 +35,8 @@
 
 ### Association
 
-- has_many   :comments
 - belongs_to :user
 - has_one    :buyer
-
-## comment テーブル
-
-| Column                  | Type       | Option                        |
-| ----------------------- | ---------- | ----------------------------- |
-| text                    | text       | null:false                    |
-| user                    | references | null:false, foreign_key: true |
-| item                    | references | null:false, foreign_key: true |
-
-### Association
-
-- belongs_to :item
-- belongs_to :user
 
 ## buyers テーブル
 
