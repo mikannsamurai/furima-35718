@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_235239) do
     t.string "encrypted_password", default: "", null: false
     t.string "first_name_full_width", null: false
     t.string "last_name_full_width", null: false
-    t.string "first_name_katakane", null: false
+    t.string "first_name_katakana", null: false
     t.string "last_name_katakana", null: false
     t.string "birthday", null: false
     t.string "reset_password_token"

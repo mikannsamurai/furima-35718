@@ -57,10 +57,5 @@ group :development do
   gem 'rubocop', require: false
 end
 
-<<<<<<< Updated upstream
 gem 'devise'
 gem 'pry-rails'
-=======
-gem 'device'
-gem 'pty-rails'
->>>>>>> Stashed changes
