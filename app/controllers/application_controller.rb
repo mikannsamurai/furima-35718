@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def cofigure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,keys: [:nickname, :first_name_full_width, :last_name_full_width,
+    devise_parameter_sanitizer.permit(
+      :sign_up, keys: [:nickname, :email, :first_name_full_width, :last_name_full_width,
      :first_name_katakana, :last_name_katakana, :birthday ])
   end
 end
