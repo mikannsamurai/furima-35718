@@ -59,3 +59,4 @@ end
 
 gem 'devise'
 gem 'pry-rails'
+gem 'rubocop-rails' 
