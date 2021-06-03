@@ -12,7 +12,8 @@ class Item < ApplicationRecord
   with_options resence: true do
   validates :name
   validates :text
-  validates :price
+  validates :image
+  validates :price, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999
   end
   with_options numericality: { onther_than: 1 } do
   validates :category_id
