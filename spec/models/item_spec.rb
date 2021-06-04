@@ -9,6 +9,7 @@ RSpec.describe Item, type: :model do
     context '商品出品できる時' do
       it 'nameとtextとpriceとcategory_idとproduct_condition_idとshipping_fee_burden_idと
           prefecture_idとestimated_shipping_date_idが存在すれば登録できる' do
+          binding.pry
         expect(@item).to be_valid
       end
     end
