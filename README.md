@@ -49,9 +49,9 @@
 
 belongs_to :user 
 belongs_to :item
-has_one    :order
+has_one    :buyer
 
-## order テーブル
+## buyers テーブル
 
 | Column                        | Type       | Option                        |
 | ----------------------------- | ---------- | ----------------------------- |

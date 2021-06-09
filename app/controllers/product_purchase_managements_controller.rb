@@ -1,0 +1,2 @@
+class ProductPurchaseManagementsController < ApplicationController
+end
