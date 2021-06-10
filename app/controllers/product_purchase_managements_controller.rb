@@ -1,12 +1,13 @@
 class ProductPurchaseManagementsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create, :move_to_action]
+  before_action :move_to_action, only: :index
 
   def index
-    @product_purchase_management = ProductPurchaseManagement.new
-    @item = Item.find(params[:item_id])
+    @buyer_product_purchase_management = BuyerProductPurchaseManagement.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @buyer_product_purchase_management = BuyerProductPurchaseManagement.new(buyer_product_purchase_management_params)
     if @buyer_product_purchase_management.valid?
       @buyer_product_purchase_management.save
@@ -18,7 +19,15 @@ class ProductPurchaseManagementsController < ApplicationController
 
   private
   def buyer_product_purchase_management_params
-    params.permit(:municipalities, :address, :postal_coke, :phone_number, :prefecture_id)
+    params.require(:buyer_product_purchase_management).permit(:municipalities, :address, :postal_coke, :phone_number, :prefecture_id)
     .merge(user_id: current_user.id, item_id: @item.id)
+  end
+
+  def move_to_action
+    redirect_to root_path if current_user.id == @item.user.id
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end
