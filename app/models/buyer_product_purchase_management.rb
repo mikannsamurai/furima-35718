@@ -9,7 +9,7 @@ class BuyerProductPurchaseManagement
     validates :item_id
     validates :user_id
     validates :postal_coke, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
-    validates :phone_number, format: {with: /\A[0]{1}\d{9,11}\z/}
+    validates :phone_number, format: {with: /\A[0-9]{0,11}\z/}
   end
     validates :prefecture_id, numericality: {other_than: 0 }
 
