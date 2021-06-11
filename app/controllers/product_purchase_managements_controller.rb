@@ -19,12 +19,12 @@ class ProductPurchaseManagementsController < ApplicationController
 
   private
   def buyer_product_purchase_management_params
-    params.require(:buyer_product_purchase_management).permit(:municipalities, :address, :postal_coke, :phone_number, :prefecture_id)
-    .merge(user_id: current_user.id, item_id: @item.id)
+    params.require(:buyer_product_purchase_management).permit(:municipalities, :address, :postal_coke, :building_name_and_room_number,
+       :phone_number, :prefecture_id, :product_purchase_management_id).merge(user_id: current_user.id, item_id: @item.id)
   end
 
   def move_to_action
-    redirect_to root_path if current_user.id == @item.user.id
+    redirect_to root_path unless @item.present? || current_user.id != @item.user.id
   end
 
   def set_item
