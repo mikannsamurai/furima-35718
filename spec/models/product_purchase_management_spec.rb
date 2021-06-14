@@ -14,6 +14,10 @@ RSpec.describe ProductPurchaseManagement, type: :model do
           postal_cokeとphone_numberとtokenが存在する時購入できる' do
         expect(@buyer).to be_valid
       end
+      it 'building_name_and_room_numberがなくても購入できる' do
+        @buyer.building_name_and_room_number = ''
+        expect(@buyer).to be_valid
+      end
     end
     context '購入できない時' do
       it 'item_idが空の時' do
@@ -56,7 +60,12 @@ RSpec.describe ProductPurchaseManagement, type: :model do
         @buyer.valid?
         expect(@buyer.errors.full_messages).to include("Phone number can't be blank")
       end
-      it 'phone_numberが11桁以上の時' do
+      it 'phone_numberが9桁以下の時' do
+        @buyer.phone_number = '111111111'
+        @buyer.valid?
+        expect(@buyer.errors.full_messages).to include('Phone number is invalid')
+      end
+      it 'phone_numberが12桁以上の時' do
         @buyer.phone_number = '111111111111'
         @buyer.valid?
         expect(@buyer.errors.full_messages).to include('Phone number is invalid')
