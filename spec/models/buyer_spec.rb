@@ -8,7 +8,7 @@ RSpec.describe Buyer, type: :model do
   describe '商品購入機能' do
     context '商品が購入できる時' do
       it 'prefecture_idとmunicipalitiesとaddressとproduct_purchase_management_idと
-          postal_cokeとphone_numberが存在する時購入できる' do
+          postal_cokeとphone_numberとtokenが存在する時購入できる' do
           expect(@buyer).to be_valid
       end
     end
@@ -47,6 +47,11 @@ RSpec.describe Buyer, type: :model do
        @buyer.phone_number = '111111111111'
        @buyer.valid?
        expect(@buyer.errors.full_messages).to include("Phone number is invalid")
+     end
+     it 'tokenが空では登録できない' do
+       @buyer.token = ""
+       @buyer.valid?
+       expect(@buyer.errors.full_messages).to include("Token can't be blank")
      end
     end
   end
