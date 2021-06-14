@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :shipping_fee_burden
 
   has_one_attached :image
-  has_one    :product_purchase_management
+  has_one :product_purchase_management
 
   with_options presence: true do
     validates :image
