@@ -1,6 +1,6 @@
 class ProductPurchaseManagementsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: [:index, :create, :move_to_action]
+  before_action :set_item, only: [:index, :create]
   before_action :move_to_action, only: :index
 
   def index
@@ -25,7 +25,7 @@ class ProductPurchaseManagementsController < ApplicationController
   end
 
   def move_to_action
-    redirect_to root_path unless @item.present? || current_user.id != @item.user.id
+    redirect_to root_path if @item.product_purchase_management.present? || current_user.id == @item.user.id
   end
 
   def set_item

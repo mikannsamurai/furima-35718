@@ -4,7 +4,7 @@ class CreateBuyers < ActiveRecord::Migration[6.0]
       t.integer :prefecture_id,    null:false
       t.string :municipalities,    null:false
       t.string :address,           null:false
-      t.string :building_name_and_room_number, null:false
+      t.string :building_name_and_room_number
       t.string :product_purchase_management_id,   null:false
       t.string :postal_coke,       null:false
       t.string :phone_number,      null:false
